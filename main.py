@@ -2,7 +2,7 @@
 # Amy Ward
 # Brenden Toussant
 # Jordan Reid
-# Caleb (Add last name)
+# Caleb Mickens
 
 
 #Main method of the program
