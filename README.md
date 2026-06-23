@@ -1,4 +1,4 @@
-#Med Student Matching
+Med Student Matching
 
 ## Team Information
 
