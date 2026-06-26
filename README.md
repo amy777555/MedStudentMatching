@@ -19,7 +19,7 @@
 
 # Problem Statement
 
-(Insert assignment/problem description here.)
+If there are more resident than there are slots in a hospital, how could an algorithm (Insert assignment/problem description here.)
 
 ---
 
@@ -159,7 +159,8 @@ project-folder/
 
 ## Requirements
 
-```text
+Python 3 is necessary to run this code.
+```
 (Insert software/language requirements here.)
 ```
 
