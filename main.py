@@ -1,4 +1,4 @@
-#Med Student Matching
+# Med Student Matching
 # Amy Ward
 # Brenden Toussant
 # Jordan Reid
@@ -56,25 +56,108 @@ def parse_matching_data(file_path):
     except Exception as e:
         print(f"An error occurred during parsing: {e}")
         return None, None
-    
 
+def modified_gale_shapley(hospitals, residents):
+    """
+    Modified Gale-Shapley algorithm for assigning residents to hospitals
+    when hospitals may have more than one available slot, and when there
+    are more residents than available slots.
+
+    PSEUDOCODE:
+    Start with all hospitals empty and all residents unmatched.
+    While some hospital has an open slot and has not proposed to everyone:
+        Have that hospital propose to the next resident on its list.
+        If the resident does not rank that hospital, reject.
+        If the resident is unmatched, assign them to the hospital.
+        Otherwise, the resident keeps the hospital they prefer.
+    Return the hospital assignments.
+    """
+
+    matches = {}
+    resident_matches = {}
+    next_proposal_index = {}
+
+    # Initialize hospital matches and proposal positions
+    for hospital in hospitals:
+        matches[hospital] = []
+        next_proposal_index[hospital] = 0
+
+    # Initialize all residents as unmatched
+    for resident in residents:
+        resident_matches[resident] = None
+
+    # Build resident ranking dictionaries
+    resident_rankings = {}
+
+    for resident, preference_list in residents.items():
+        ranking = {}
+
+        for index, hospital in enumerate(preference_list):
+            ranking[hospital] = index
+
+        resident_rankings[resident] = ranking
+
+    while True:
+        proposing_hospital = None
+
+        # Find a hospital that still has open slots and someone left to propose to
+        for hospital in hospitals:
+            has_open_slot = len(matches[hospital]) < hospitals[hospital]['slots']
+            has_residents_left = next_proposal_index[hospital] < len(hospitals[hospital]['preferences'])
+
+            if has_open_slot and has_residents_left:
+                proposing_hospital = hospital
+                break
+
+        # Stop when no hospital can make any more proposals
+        if proposing_hospital is None:
+            break
+
+        hospital = proposing_hospital
+        hospital_preferences = hospitals[hospital]["preferences"]
+
+        resident = hospital_preferences[next_proposal_index[hospital]]
+        next_proposal_index[hospital] += 1
+
+        # Reject if this resident was listed by a hospital but not defined as a resident
+        if resident not in residents:
+            continue
+
+        # Skip if the resident did not rank this hospital
+        if hospital not in resident_rankings[resident]:
+            continue
+
+        current_hospital = resident_matches[resident]
+
+        # Case 1: resident is unmatched
+        if current_hospital is None:
+            matches[hospital].append(resident)
+            resident_matches[resident] = hospital
+
+        # Case 2: resident is already matched, but may prefer another hospital
+        else:
+            current_rank = resident_rankings[resident][current_hospital]
+            new_rank = resident_rankings[resident][hospital]
+
+            if new_rank < current_rank:
+                matches[current_hospital].remove(resident)
+                matches[hospital].append(resident)
+                resident_matches[resident] = hospital
+
+    return matches
 
 if __name__ == '__main__':
 
     file_name = 'sample_input.txt'
-    
+
     hosp_dict, res_dict = parse_matching_data(file_name)
-    
+
     if hosp_dict and res_dict:
-        print("--- HOSPITALS ---")
-        for h_name, data in hosp_dict.items():
-            print(f"{h_name} (Slots: {data['slots']}): {data['preferences']}")
-            
-        print("\n--- RESIDENTS ---")
-        for r_name, prefs in res_dict.items():
-            print(f"{r_name}: {prefs}")
+        matches = modified_gale_shapley(hosp_dict, res_dict)
 
-#Main method of the program
-def main():
-    print("Let's get to work.")
-
+        print("\n--- FINAL MATCHES ---")
+        for hospital, assigned_residents in matches.items():
+            if assigned_residents:
+                print(hospital + ", " + ", ".join(assigned_residents))
+            else:
+                print(hospital + ",")
