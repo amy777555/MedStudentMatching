@@ -4,9 +4,9 @@
 
 | Name | Email |
 |--------|--------|
-| Amy Ward | email@example.com |
+| Amy Ward | award62@students.kennesaw.edu |
 | Brenden Toussant | email@example.com |
-| Jordan Reid | email@example.com |
+| Jordan Reid | jreid71@students.kennesaw.edu |
 | Caleb | email@example.com |
 
 ---
