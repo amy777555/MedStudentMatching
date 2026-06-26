@@ -7,7 +7,7 @@
 | Amy Ward | award62@students.kennesaw.edu |
 | Brenden Toussant | btoussan@students.kennesaw.edu |
 | Jordan Reid | jreid71@students.kennesaw.edu |
-| Caleb | email@example.com |
+| Caleb Mickens | email@example.com |
 
 ---
 
