@@ -4,6 +4,7 @@
 # Jordan Reid
 # Caleb Mickens
 
+from StabilityChecker import check_stability
 
 def parse_matching_data(file_path):
     """
@@ -155,9 +156,18 @@ if __name__ == '__main__':
     if hosp_dict and res_dict:
         matches = modified_gale_shapley(hosp_dict, res_dict)
 
-        print("\n--- FINAL MATCHES ---")
-        for hospital, assigned_residents in matches.items():
-            if assigned_residents:
-                print(hospital + ", " + ", ".join(assigned_residents))
-            else:
-                print(hospital + ",")
+        hospital_prefs = {}
+        for hospital, data in hosp_dict.items():
+            hospital_prefs[hospital] = data["preferences"]
+
+        is_stable = check_stability(hospital_prefs, res_dict, matches)
+
+        if is_stable:
+            print("\n--- FINAL MATCHES ---")
+            for hospital, assigned_residents in matches.items():
+                if assigned_residents:
+                    print(hospital + ", " + ", ".join(assigned_residents))
+                else:
+                    print(hospital + ",")
+        else:
+            print("Matching is not stable.")
