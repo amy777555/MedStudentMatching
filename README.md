@@ -13,14 +13,13 @@
 
 # Overview
 
-This project is an implementation of a modified version of the Gale-Shapely algorithm in Python for the sake of proving the stability of the assignment of medical students to hospitals described in our assignment.
+This project is an implementation of a modified version of the Gale-Shaply algorithm in Python for the sake of proving the stability of the assignment of medical students to hospitals described in our assignment.
 
 ---
 
 # Problem Statement
 
-
-, how could an algorithm (Insert assignment/problem description here.)
+There are m hospitals, each with a certain number of availible positions for hiring residents. Additionally, there are n medical students graduating in a given year, each looking to join one of the hospitals. Each of these hospitals has a ranking of the students in order of preference. Assuming that there are more students graduating than there are slots availible at m hospitals, we need to prove that there is always a stable assignment of students to hospitals utilizing our modified Gale-Shapley algorithm.
 
 ---
 
@@ -32,6 +31,7 @@ This project is an implementation of a modified version of the Gale-Shapely algo
 
 # Algorithm Description
 
+The algorithm that this program utilizes is 
 (Insert algorithm description here.)
 
 ### Pseudocode
