@@ -31,7 +31,7 @@ There are m hospitals, each with a certain number of availible positions for hir
 
 # Algorithm Description
 
-The algorithm that this program utilizes is 
+The algorithm that this program utilizes is a modified version of the Gale-shaply algorithm. It is designed to 
 (Insert algorithm description here.)
 
 ### Pseudocode
