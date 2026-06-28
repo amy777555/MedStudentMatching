@@ -13,13 +13,13 @@
 
 # Overview
 
-(Insert brief description of the project here.)
+This project is (Insert brief description of the project here.)
 
 ---
 
 # Problem Statement
 
-If there are more resident than there are slots in a hospital, how could an algorithm (Insert assignment/problem description here.)
+During times of crisis, it is common for hospitals to face the dilemma of there being more people needing care than there are spaces availible in the hospital. , how could an algorithm (Insert assignment/problem description here.)
 
 ---
 
