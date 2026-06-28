@@ -13,13 +13,13 @@
 
 # Overview
 
-This project is (Insert brief description of the project here.)
+This project is an implementation of a modified version of the Gale-Shapely algorithm in Python for the sake of proving the stability of the assignment of medical students to hospitals described in our assignment.
 
 ---
 
 # Problem Statement
 
-During times of crisis, it is common for hospitals to face the dilemma of there being more people needing care than there are spaces availible in the hospital due to a variety of other factors.  
+
 , how could an algorithm (Insert assignment/problem description here.)
 
 ---
