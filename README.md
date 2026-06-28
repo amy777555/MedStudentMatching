@@ -19,7 +19,8 @@ This project is (Insert brief description of the project here.)
 
 # Problem Statement
 
-During times of crisis, it is common for hospitals to face the dilemma of there being more people needing care than there are spaces availible in the hospital. , how could an algorithm (Insert assignment/problem description here.)
+During times of crisis, it is common for hospitals to face the dilemma of there being more people needing care than there are spaces availible in the hospital due to a variety of other factors.  
+, how could an algorithm (Insert assignment/problem description here.)
 
 ---
 
@@ -56,12 +57,15 @@ project-folder/
 
 # Input Format
 
-(Describe the expected input format.)
+Input for this program will be provided in the form of a sequence of (n+1+m)-lines (Describe the expected input format.)
 
 ### Example Input
 
 ```text
-(Insert sample input here.)
+     HOSPITAL_1, SLOTS, RESIDENT_a,...
+                                   ...
+                        **BLANK LINE**
+RESIDENT_1, HOSPITAL_x, HOSPITAL_y,...
 ```
 
 ---
