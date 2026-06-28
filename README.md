@@ -57,7 +57,7 @@ project-folder/
 
 # Input Format
 
-Input for this program will be provided in the form of a sequence of (n+1+m)-lines (Describe the expected input format.)
+Input for this program will be provided in the form of a sequence of (n+1+m)-lines where the preference lists will be encoded with n lines for hospitals and m lines for residents with each comma-seperated line formmatted as shown below:
 
 ### Example Input
 
